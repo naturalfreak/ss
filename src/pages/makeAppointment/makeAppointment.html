@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div [ngStyle] = "{'color':data.color}">Запази час</div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-list>
+    <ion-item>
+      <ion-input #service placeholder="Услуга"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Дата</ion-label>
+      <ion-datetime
+        #date
+        displayFormat="MMM DD YYYY"
+        [(ngModel)]="event.month"
+      >
+
+      </ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Час</ion-label>
+      <ion-datetime #time displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="event.timeStarts"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-input #more placeholder="Повече информация"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full
+          [ngStyle] = "{'background-color':data.color}"
+          (click)="confirm(service, date, time, more)"
+  >
+    Запази час
+  </button>
+
+</ion-content>
+
+

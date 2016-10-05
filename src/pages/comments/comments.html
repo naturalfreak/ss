@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Коментари
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list no-lines>
+    <ion-item
+      *ngFor="let comment of data.item.comments"
+    >
+      <ion-avatar
+        item-left>
+        <img class="avatar" src={{comment.img}}>
+      </ion-avatar>
+      <p class="name"><b>{{comment.name}}</b></p>
+      <p class="comment"> {{comment.comment}}</p>
+      <ion-note class="note">
+        {{comment.time}}
+      </ion-note>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-footer>
+  <div class="input-div">
+
+    <ion-input #comment class="comment-input" type="text" placeholder="Добавете коментар">
+
+    </ion-input>
+    <button class="send"
+            [ngStyle]="{background: data.color}"
+            (click)="addComment(comment)"
+    >
+      <ion-icon name="send"></ion-icon>
+    </button>
+
+  </div>
+    </ion-footer>
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Известия
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button
+      ion-item
+      class = "home-page-categories-btn"
+      *ngFor="let message of messages"
+      (click)="onMessageClick(message)"
+    >
+      <ion-avatar
+        item-left>
+        <img class="avatar" src={{message.img}}>
+      </ion-avatar>
+      <p class="name"><b>{{message.name}}</b></p>
+      <p class="service"> {{message.service}}</p>
+      <p class="service"> {{message.date}}, {{message.time}}</p>
+      <ion-icon [ngStyle]="{'color': message.color}"
+                class="message-icon"
+                name={{message.accept}}>
+
+      </ion-icon>
+      <span class="condition">{{message.condition}}</span>
+      <ion-note class="time">
+        {{message.askedTime}}
+      </ion-note>
+    </button>
+  </ion-list>
+</ion-content>

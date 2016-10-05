@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div [ngStyle] = "{'color': subData.color}">{{subData.name}} </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <button
+    id="filter"
+    [ngStyle] = "{'background': subData.color}"
+     (click)="onFilterClick(subData.color)"
+  >
+    Филтрирай
+  </button>
+  <button
+    id="search"
+    [ngStyle] = "{'background': subData.color}"
+    (click)="onSearchClick(subData.items)"
+  >
+    Търси
+  </button>
+
+  <ion-list>
+    <div
+      ion-item class = "list-btn"
+      *ngFor="let item of subData.items"
+      (click)="openNavDetailsPage(item, subData.color)"
+    >
+      <div class="items">
+        <img
+          class="item-img"
+          src="{{item.img}}"
+        />
+
+        <p class="item-info"><b>
+        {{item.name}}
+        </b></p>
+
+        <p
+          class="item-info">
+          Град: {{item.city}}
+        </p>
+
+        <button
+          class="comments"
+          outline
+          [ngStyle] = "{'color': subData.color, 'border-color': subData.color}">
+        <ion-icon name="text"></ion-icon>
+        <div>{{item.comments.length}} коментара</div>
+        </button>
+
+        <button
+          #btn
+          class="likes"
+          clear large
+          (click)="onLikeClick(btn,subData.color, like, item)"
+          [style.color]="item.clicked?subData.color:''"
+
+        >
+          <ion-icon name="thumbs-up"></ion-icon>
+          <span #like class="count-likes"
+                [style.color]="item.clicked?subData.color:''"
+          >({{item.likes.length}})</span>
+        </button>
+      </div>
+
+
+    </div>
+  </ion-list>
+</ion-content>

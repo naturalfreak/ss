@@ -1,0 +1,97 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div [ngStyle] = "{'color':color}">{{item.name}} </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-item>
+      <div class="items">
+        <ion-avatar  item-left>
+          <img class="item-img" src="{{item.img}}">
+
+        </ion-avatar>
+        <p class="item-name"><b>{{item.name}}</b></p>
+        <p  class="under-name">работещо в момента</p>
+
+        <button
+          #btn
+          class="likes"
+          clear large
+          (click)="onLikeClick(btn,color, item)"
+          [style.color]="item.clicked?color:''"
+        >
+          <ion-icon name="thumbs-up"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+
+    <ion-card-content>
+
+      <ion-list>
+        <ion-list-header>
+          <ion-icon name="pin"></ion-icon>
+          Адрес
+        </ion-list-header>
+        <ion-item><p class="item-info">{{item.city}}, {{item.address}}</p></ion-item>
+        <ion-list-header>
+          <ion-icon name="clock"></ion-icon>
+          Работно време
+        </ion-list-header>
+        <ion-item><p class="item-info">Делнични дни: {{item.workTimeWeekday}}</p></ion-item>
+        <ion-item><p class="item-info">Събота: {{item.workTimeSaturday}}</p></ion-item>
+        <ion-item><p class="item-info">Неделя: {{item.workTimeSunday}}</p></ion-item>
+        <ion-list-header>
+          <ion-icon name="information-circle"></ion-icon>
+          Повече информация
+        </ion-list-header>
+        <ion-item><p class="item-info">{{item.moreInfo}}</p></ion-item>
+      </ion-list>
+
+      <button
+        block
+        class="make-appointment"
+        [ngStyle] = "{'background-color':color}"
+        (click)="makeAppointement(color)"
+      >
+        Запиши час
+      </button>
+
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button
+          clear small
+          class="likes-and-comments"
+          [ngStyle] = "{'color': color, 'border-color':color}"
+          (click)="onButtonLikesClick(item.likes)"
+        >
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{item.likes.length}} Харесвания</div>
+        </button>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <button
+          clear small
+          class="likes-and-comments"
+          [ngStyle] = "{'color': color, 'border-color':color}"
+          (click)="onButtonCommentsClick( color, item)"
+        >
+          <ion-icon name="text"></ion-icon>
+          <div>{{item.comments.length}} Коментара</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div [ngStyle] = "{'color': data.color}">{{data.name}} </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item class = "subCategory-btn"
+            *ngFor="let item of data.items"
+            [ngStyle]="{'background-color': item.color}"
+            (click)="openNavDetailsPage(item.name, item.color, item.sub)"
+    >
+      <img class='sub-icons' src={{item.icon}} />
+      <p class="subcategory-name"><b>{{item.name}}</b></p>
+    </button>
+  </ion-list>
+</ion-content>

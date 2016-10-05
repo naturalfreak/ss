@@ -1,0 +1,29 @@
+<ion-header xmlns="http://www.w3.org/1999/html">
+  <ion-navbar>
+    <img class='logo' src="../../../img/logo.png"/>
+    <button clear class="search"
+            (click)="onSearchClick()"
+    >
+      <ion-icon name="search"
+
+                blue2
+      >
+      </ion-icon>
+    </button>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item class = "home-page-categories-btn"
+            *ngFor="let item of _category.getCategories()"
+            (click)="openNavDetailsPage(item.name, item.color, item.sub)"
+            [ngStyle]="{'background-color': item.color}"
+
+    >
+      <img class='icons' src={{item.icon}} />
+      <p class="category-names"><b>{{item.name}}</b></p>
+    </button>
+  </ion-list>
+</ion-content>

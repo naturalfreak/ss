@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Настройки
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="about">
+  <ion-avatar>
+    <img class="avatar" src={{user.img}}>
+    <p primary
+       class="change-photo"
+    >
+      Смяна на снимка
+    </p>
+
+  </ion-avatar>
+
+  <ion-list>
+    <ion-list-header class="header"><b>
+      ЛИЧНА ИНФОРМАЦИЯ
+      </b></ion-list-header>
+    <ion-item>
+      <ion-icon name='person' item-left class="icon"></ion-icon>
+      <ion-input value="{{user.name}}"></ion-input>
+    </ion-item>
+
+    <ion-list-header class="header"><b>
+      ПОВЕРИТЕЛНА ИНФОРМАЦИЯ
+    </b></ion-list-header>
+    <ion-item>
+      <ion-icon name='mail' item-left class="icon"></ion-icon>
+      <ion-input value="{{user.email}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='call' item-left class="icon"></ion-icon>
+      <ion-input value="{{user.gsm}}"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block light>Смяна на парола</button>
+
+  <button
+    ion-button full primary
+    class="save"
+  >
+    Запази промените
+  </button>
+
+
+</ion-content>
